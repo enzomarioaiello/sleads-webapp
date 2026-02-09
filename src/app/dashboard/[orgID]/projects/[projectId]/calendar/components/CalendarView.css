@@ -1,0 +1,205 @@
+/* React Big Calendar Custom Styles with Dark Mode Support */
+.rbc-calendar {
+  font-family: inherit;
+}
+
+.rbc-header {
+  padding: 8px 4px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dark .rbc-header {
+  color: #e2e8f0;
+  border-bottom-color: #334155;
+}
+
+.rbc-day-bg {
+  border-color: #e5e7eb;
+}
+
+.dark .rbc-day-bg {
+  border-color: #334155;
+}
+
+.rbc-time-slot {
+  border-top-color: #f3f4f6;
+}
+
+.dark .rbc-time-slot {
+  border-top-color: #1e293b;
+}
+
+.rbc-time-header-content {
+  border-left-color: #e5e7eb;
+}
+
+.dark .rbc-time-header-content {
+  border-left-color: #334155;
+}
+
+.rbc-event {
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-left-width: 4px;
+}
+
+.rbc-event:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.rbc-event-label {
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+.rbc-today {
+  background-color: #eff6ff;
+}
+
+.dark .rbc-today {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.rbc-off-range-bg {
+  background-color: #f9fafb;
+}
+
+.dark .rbc-off-range-bg {
+  background-color: #0f172a;
+}
+
+.rbc-toolbar {
+  display: none; /* We have our own toolbar */
+}
+
+.rbc-time-view {
+  border-color: #e5e7eb;
+}
+
+.dark .rbc-time-view {
+  border-color: #334155;
+}
+
+.rbc-time-content {
+  border-top-color: #e5e7eb;
+}
+
+.dark .rbc-time-content {
+  border-top-color: #334155;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  border-top-color: #f3f4f6;
+}
+
+.dark .rbc-day-slot .rbc-time-slot {
+  border-top-color: #1e293b;
+}
+
+.rbc-time-header-gutter {
+  padding: 8px;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.dark .rbc-time-header-gutter {
+  color: #94a3b8;
+}
+
+.rbc-time-content > * + * > * {
+  border-left-color: #e5e7eb;
+}
+
+.dark .rbc-time-content > * + * > * {
+  border-left-color: #334155;
+}
+
+.rbc-month-view {
+  border-color: #e5e7eb;
+}
+
+.dark .rbc-month-view {
+  border-color: #334155;
+}
+
+.rbc-month-row {
+  border-color: #e5e7eb;
+}
+
+.dark .rbc-month-row {
+  border-color: #334155;
+}
+
+.rbc-day-bg + .rbc-day-bg {
+  border-left-color: #e5e7eb;
+}
+
+.dark .rbc-day-bg + .rbc-day-bg {
+  border-left-color: #334155;
+}
+
+.rbc-date-cell {
+  padding: 4px;
+  text-align: right;
+  font-size: 0.875rem;
+}
+
+.rbc-date-cell > a {
+  color: #374151;
+  text-decoration: none;
+}
+
+.dark .rbc-date-cell > a {
+  color: #e2e8f0;
+}
+
+.rbc-date-cell.rbc-now > a {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.dark .rbc-date-cell.rbc-now > a {
+  color: #60a5fa;
+}
+
+.rbc-show-more {
+  background-color: #f3f4f6;
+  color: #374151;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+.dark .rbc-show-more {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+.rbc-show-more:hover {
+  background-color: #e5e7eb;
+}
+
+.dark .rbc-show-more:hover {
+  background-color: #334155;
+}
+
+.rbc-popup {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark .rbc-popup {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+

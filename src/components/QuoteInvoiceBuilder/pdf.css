@@ -1,0 +1,175 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+.pdf-document-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  /* Ensure measurement container doesn't affect layout */
+  contain: layout style;
+}
+
+.pdf-page {
+  width: 210mm;
+  height: 297mm;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* Fixed height for each page - content will flow to next page */
+  page-break-after: always;
+  break-after: page;
+  margin-bottom: 40px;
+  /* Reserve space at bottom for page number - adjust padding to account for this */
+  padding-bottom: 15mm;
+  /* Ensure pages don't overlap when scaled */
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.pdf-page:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+/* Header section */
+.pdf-header-first-page {
+  margin-bottom: 48px;
+  flex-shrink: 0;
+}
+
+/* Table styling - prevent rows from breaking */
+.pdf-page table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  page-break-inside: auto;
+  break-inside: auto;
+}
+
+.pdf-page table thead {
+  display: table-header-group;
+}
+
+.pdf-page table tbody {
+  display: table-row-group;
+}
+
+/* Prevent individual rows from breaking */
+.pdf-page table tbody tr {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+  -webkit-region-break-inside: avoid !important;
+}
+
+.pdf-page table td {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Items container - simple block flow, can grow */
+.pdf-items-container {
+  margin-bottom: 32px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: visible;
+}
+
+/* Single page items container - ensure proper spacing and don't grow */
+.pdf-items-container.single-page {
+  flex: 0 1 auto;
+  margin-bottom: 24px;
+}
+
+/* Single page totals - reduce margins */
+.pdf-totals-section.single-page-totals {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+/* Single page footer - reduce margins and ensure space for page number */
+.pdf-footer-section.single-page-footer {
+  margin-top: 16px;
+  margin-bottom: 12mm; /* Reduced to leave space for page number at 8mm from bottom */
+}
+
+/* Totals section */
+.pdf-totals-section {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  flex-shrink: 0;
+}
+
+/* Footer section */
+.pdf-footer-section {
+  margin-top: 24px;
+  margin-bottom: 20mm;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  flex-shrink: 0;
+}
+
+/* Page number - always visible at bottom */
+.pdf-page-number {
+  position: absolute;
+  bottom: 8mm;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: #4b5563;
+  font-weight: 600;
+  z-index: 1000;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 0;
+}
+
+/* Ensure page number is visible on single-page invoices */
+.pdf-page:only-child .pdf-page-number,
+.pdf-page.single-page .pdf-page-number {
+  display: block;
+  visibility: visible;
+}
+
+/* Measurement container - hidden offscreen for measuring item heights */
+.pdf-measurement-container {
+  position: fixed !important;
+  top: -200vw !important;
+  left: -200vw !important;
+  width: 210mm !important;
+  padding: 20mm !important;
+  box-sizing: border-box !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -999999 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  border: none !important;
+  height: auto !important;
+  /* Move completely off-screen using viewport units */
+  transform: translateX(-999999px) translateY(-999999px) !important;
+  /* Completely clip it out */
+  clip-path: polygon(0 0, 0 0, 0 0, 0 0) !important;
+  clip: rect(0, 0, 0, 0) !important;
+  /* Ensure it doesn't affect layout or scrolling */
+  contain: strict !important;
+  isolation: isolate !important;
+}
+
+.pdf-measurement-container table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.pdf-measurement-container table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+}
